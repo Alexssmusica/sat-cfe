@@ -1,0 +1,39 @@
+{
+	"compilerOptions": {
+		"types": [
+			"node"
+		],
+		"lib": [
+			"ES2015"
+		],
+		"target": "ES2018",
+		"incremental": true,
+		"module": "commonjs",
+		"sourceMap": false,
+		// "outDir": "./dist",
+		"moduleResolution": "node",
+		"declaration": false,
+		"composite": false,
+		"removeComments": true,
+		"noImplicitAny": false,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"noImplicitThis": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"allowJs": true,
+	},
+	"include": [
+		"./src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"dist",
+		"test"
+	]
+}

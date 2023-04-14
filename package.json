@@ -4,7 +4,8 @@
   "description": "Addon para comunicar com dll do sat cfe",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/*/.{vue,js,ts} --quiet --fix"
   },
   "author": "Abimael Batista - @maaelphd",
   "license": "MIT",
@@ -20,7 +21,14 @@
   },
   "devDependencies": {
     "@types/node": "^18.15.11",
-    "@types/xml2js": "^0.4.11"
+    "@types/xml2js": "^0.4.11",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+		"@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.13.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"prettier": "^2.6.2",
+    "typescript": "^5.0.4"
   },
   "directories": {
     "lib": "lib"

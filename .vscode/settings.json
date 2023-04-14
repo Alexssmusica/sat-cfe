@@ -1,0 +1,13 @@
+{
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true,
+		"coverage": true,
+		"next-env.d.ts": true,
+		".next": true
+	},
+	"editor.formatOnSave": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	}
+}
