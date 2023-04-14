@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Abimael Batista - @maaelphd",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^9.1.2",
@@ -21,5 +21,19 @@
   "devDependencies": {
     "@types/node": "^18.15.11",
     "@types/xml2js": "^0.4.11"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexssmusica/sat-cfe.git"
+  },
+  "keywords": [
+    "sat"
+  ],
+  "bugs": {
+    "url": "https://github.com/Alexssmusica/sat-cfe/issues"
+  },
+  "homepage": "https://github.com/Alexssmusica/sat-cfe#readme"
 }
