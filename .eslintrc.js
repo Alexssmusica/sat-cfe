@@ -23,8 +23,10 @@ module.exports = {
 		'camelcase': 'off',
         "prettier/prettier": "warn",
         "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/no-explicit-any": "off",
+        "no-irregular-whitespace": "off",
         "@typescript-eslint/no-unused-vars": "off",
 		"@typescript-eslint/no-non-null-assertion": 'off',
 	}

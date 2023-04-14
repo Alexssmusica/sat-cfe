@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/*/.{vue,js,ts} --quiet --fix"
+    "lint": "npx eslint */*/.{js,ts} --quiet --fix",
+	"prettier": "npx prettier src/**/*.{vue,js,ts} --write"
   },
   "author": "Abimael Batista - @maaelphd",
   "license": "MIT",
   "dependencies": {
+    "@types/ffi-napi": "^4.0.7",
     "babel-cli": "^6.26.0",
     "babel-loader": "^9.1.2",
     "babel-plugin-import": "^1.13.6",
@@ -22,12 +24,12 @@
   "devDependencies": {
     "@types/node": "^18.15.11",
     "@types/xml2js": "^0.4.11",
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-		"@typescript-eslint/parser": "^5.20.0",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.20.0",
     "eslint": "^8.13.0",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-prettier": "^4.0.0",
-		"prettier": "^2.6.2",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.6.2",
     "typescript": "^5.0.4"
   },
   "directories": {
