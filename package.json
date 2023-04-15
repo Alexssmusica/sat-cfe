@@ -1,12 +1,14 @@
 {
   "name": "sat-cfe",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Addon para comunicar com dll do sat cfe",
-  "main": "index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint */*/.{js,ts} --quiet --fix",
-	"prettier": "npx prettier src/**/*.{vue,js,ts} --write"
+	"type": "tsc --project tsconfig.json",
+	"build": "tsc",
+    "prettier": "npx prettier src/**/*.{vue,js,ts} --write"
   },
   "author": "Abimael Batista - @maaelphd",
   "license": "MIT",
@@ -33,7 +35,7 @@
     "typescript": "^5.0.4"
   },
   "directories": {
-    "lib": "lib"
+    "dist": "dist"
   },
   "repository": {
     "type": "git",

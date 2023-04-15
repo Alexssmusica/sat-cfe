@@ -1,5 +1,4 @@
-var xml2js = require('xml2js');
-var builder = new xml2js.Builder();
+import { Builder } from 'xml2js';
 
 export interface IModelConfigurarInterfaceRedeDadosConfiguracao {
 	_tipoInter: string;
@@ -42,42 +41,42 @@ export interface IModelConfigurarInterfaceRedeDadosConfiguracao {
  * @param { string } proxy_senha - Se o proxy necessitar de senha para navegação.
  */
 export class ModelConfigurarInterfaceRedeDadosConfiguracao implements IModelConfigurarInterfaceRedeDadosConfiguracao {
-	_tipoInter: string = '';
-	_SSID: string = '';
-	_seg: string = '';
-	_codigo: string = '';
-	_tipoLan: string = '';
-	_lanIP: string = '';
-	_lanMask: string = '';
-	_lanGW: string = '';
-	_lanDNS1: string = '';
-	_lanDNS2: string = '';
-	_usuario: string = '';
-	_senha: string = '';
-	_proxy: string = '';
-	_proxy_ip: string = '';
-	_proxy_porta: string = '';
-	_proxy_user: string = '';
-	_proxy_senha: string = '';
+	_tipoInter = '';
+	_SSID = '';
+	_seg = '';
+	_codigo = '';
+	_tipoLan = '';
+	_lanIP = '';
+	_lanMask = '';
+	_lanGW = '';
+	_lanDNS1 = '';
+	_lanDNS2 = '';
+	_usuario = '';
+	_senha = '';
+	_proxy = '';
+	_proxy_ip = '';
+	_proxy_porta = '';
+	_proxy_user = '';
+	_proxy_senha = '';
 
 	constructor(
-		tipoInter: string = '',
-		SSID: string = '',
-		seg: string = '',
-		codigo: string = '',
-		tipoLan: string = '',
-		lanIP: string = '',
-		lanMask: string = '',
-		lanGW: string = '',
-		lanDNS1: string = '',
-		lanDNS2: string = '',
-		usuario: string = '',
-		senha: string = '',
-		proxy: string = '',
-		proxy_ip: string = '',
-		proxy_porta: string = '',
-		proxy_user: string = '',
-		proxy_senha: string = ''
+		tipoInter = '',
+		SSID = '',
+		seg = '',
+		codigo = '',
+		tipoLan = '',
+		lanIP = '',
+		lanMask = '',
+		lanGW = '',
+		lanDNS1 = '',
+		lanDNS2 = '',
+		usuario = '',
+		senha = '',
+		proxy = '',
+		proxy_ip = '',
+		proxy_porta = '',
+		proxy_user = '',
+		proxy_senha = ''
 	) {
 		this._tipoInter = tipoInter;
 		this._SSID = SSID;
@@ -98,11 +97,12 @@ export class ModelConfigurarInterfaceRedeDadosConfiguracao implements IModelConf
 		this._proxy_senha = proxy_senha;
 	}
 
-	toXML: () => string = function (): string {
+	toXML: () => string = (): string => {
 		try {
-			return builder.buildObject(this);
+			return new Builder().buildObject(this);
 		} catch (error) {
 			console.error('ConfigurarInterfaceRedeDadosConfiguracao.toXML<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 }

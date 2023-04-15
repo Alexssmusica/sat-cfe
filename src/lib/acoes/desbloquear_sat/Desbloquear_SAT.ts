@@ -1,20 +1,23 @@
-import { ffiLibrary } from '../../../src/utils/SAT_Library';
-import { UTF8 } from '../../../src/utils/UTF8_Decode';
+import { ffiLibrary } from '../../../utils/SAT_Library';
+import { UTF8 } from '../../../utils/UTF8_Decode';
 import { ModelDesbloquearSAT } from '../../model/acoes/desbloquear_sat/Desbloquear_SAT';
 
 export const desbloquearSAT: (_numeroSessao: number, _codigoAtivacao: string) => Promise<ModelDesbloquearSAT> = async function (
 	_numeroSessao: number,
 	_codigoAtivacao: string
 ): Promise<ModelDesbloquearSAT> {
-	return new Promise<ModelDesbloquearSAT>(async (resolve, reject) => {
+	return new Promise<ModelDesbloquearSAT>((resolve, reject) => {
 		try {
-			let resultDesbloquearSAT = await ffiLibrary.DesbloquearSAT(_numeroSessao, _codigoAtivacao);
-			resultDesbloquearSAT = UTF8.decode(resultDesbloquearSAT);
+			ffiLibrary.DesbloquearSAT.async(_numeroSessao, _codigoAtivacao, (error, resultDesbloquearSAT) => {
+				if (error) {
+					throw new Error(error);
+				}
 
-			let _desbloquearSAT = new ModelDesbloquearSAT();
-			_desbloquearSAT.fromArray(resultDesbloquearSAT.split('|'));
-
-			resolve(_desbloquearSAT);
+				resultDesbloquearSAT = UTF8.decode(resultDesbloquearSAT);
+				const _desbloquearSAT = new ModelDesbloquearSAT();
+				_desbloquearSAT.fromArray(resultDesbloquearSAT.split('|'));
+				resolve(_desbloquearSAT);
+			});
 		} catch (error) {
 			reject(error);
 		}

@@ -6,12 +6,12 @@ import { COFINSSN } from './cofinssn/cofinssn';
 import { COFINSST } from './cofinsst/cofinsst';
 
 export interface ICOFINS {
-	COFINSAliq: COFINSAliq;
-	COFINSQtde: COFINSQtde;
-	COFINSNT: COFINSNT;
-	COFINSSN: COFINSSN;
-	COFINSOutr: COFINSOutr;
-	COFINSST: COFINSST;
+	COFINSAliq: COFINSAliq | null;
+	COFINSQtde: COFINSQtde | null;
+	COFINSNT: COFINSNT | null;
+	COFINSSN: COFINSSN | null;
+	COFINSOutr: COFINSOutr | null;
+	COFINSST: COFINSST | null;
 }
 
 /** Grupo do COFINS
@@ -23,20 +23,20 @@ export interface ICOFINS {
  * @param { COFINSST } COFINSST - Grupo de COFINS Substituição Tributária
  */
 export class COFINS implements ICOFINS {
-	COFINSAliq: COFINSAliq;
-	COFINSQtde: COFINSQtde;
-	COFINSNT: COFINSNT;
-	COFINSSN: COFINSSN;
-	COFINSOutr: COFINSOutr;
-	COFINSST: COFINSST;
+	COFINSAliq: COFINSAliq | null;
+	COFINSQtde: COFINSQtde | null;
+	COFINSNT: COFINSNT | null;
+	COFINSSN: COFINSSN | null;
+	COFINSOutr: COFINSOutr | null;
+	COFINSST: COFINSST | null;
 
 	constructor(
-		cofinsAliq: COFINSAliq = null,
-		cofinsQtde: COFINSQtde = null,
-		cofinsNT: COFINSNT = null,
-		cofinsSN: COFINSSN = null,
-		cofinsOutr: COFINSOutr = null,
-		cofinsST: COFINSST = null
+		cofinsAliq: COFINSAliq | null = null,
+		cofinsQtde: COFINSQtde | null = null,
+		cofinsNT: COFINSNT | null = null,
+		cofinsSN: COFINSSN | null = null,
+		cofinsOutr: COFINSOutr | null = null,
+		cofinsST: COFINSST | null = null
 	) {
 		this.COFINSAliq = cofinsAliq;
 		this.COFINSQtde = cofinsQtde;

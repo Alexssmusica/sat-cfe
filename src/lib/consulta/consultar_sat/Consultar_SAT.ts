@@ -1,19 +1,22 @@
-import { ffiLibrary } from '../../../src/utils/SAT_Library';
-import { UTF8 } from '../../../src/utils/UTF8_Decode';
+import { ffiLibrary } from '../../../utils/SAT_Library';
+import { UTF8 } from '../../../utils/UTF8_Decode';
 import { ModelConsultarSAT } from '../../model/consulta/consultar_sat/Consultar_SAT';
 
 export const consultarSAT: (_numeroSessao: number) => Promise<ModelConsultarSAT> = async function (
 	_numeroSessao: number
 ): Promise<ModelConsultarSAT> {
-	return new Promise<ModelConsultarSAT>(async (resolve, reject) => {
+	return new Promise<ModelConsultarSAT>((resolve, reject) => {
 		try {
-			let resultConsultarSAT = await ffiLibrary.ConsultarSAT(_numeroSessao);
-			resultConsultarSAT = UTF8.decode(resultConsultarSAT);
+			ffiLibrary.ConsultarSAT.async(_numeroSessao, (error, resultConsultarSAT) => {
+				if (error) {
+					throw new Error(error);
+				}
 
-			let consultarSAT = new ModelConsultarSAT();
-			consultarSAT.fromArray(resultConsultarSAT.split('|'));
-
-			resolve(consultarSAT);
+				resultConsultarSAT = UTF8.decode(resultConsultarSAT);
+				const consultarSAT = new ModelConsultarSAT();
+				consultarSAT.fromArray(resultConsultarSAT.split('|'));
+				resolve(consultarSAT);
+			});
 		} catch (error) {
 			reject(error);
 		}

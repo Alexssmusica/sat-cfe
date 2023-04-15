@@ -15,14 +15,7 @@ export class ModelAtivarSAT implements IModelAtivarSAT {
 	_mensagemSEFAZ: string;
 	_CSR: string;
 
-	constructor(
-		numeroSessao: string = '',
-		EEEEE: string = '',
-		mensagem: string = '',
-		cod: string = '',
-		mensagemSEFAZ: string = '',
-		CSR: string = ''
-	) {
+	constructor(numeroSessao = '', EEEEE = '', mensagem = '', cod = '', mensagemSEFAZ = '', CSR = '') {
 		this._numeroSessao = numeroSessao;
 		this._EEEEE = EEEEE;
 		this._mensagem = mensagem;
@@ -31,7 +24,7 @@ export class ModelAtivarSAT implements IModelAtivarSAT {
 		this._CSR = CSR;
 	}
 
-	fromArray: (_value: Array<string>) => void = async function (_value: Array<string> = []) {
+	fromArray: (_value: Array<string>) => void = async (_value: Array<string> = []) => {
 		try {
 			this._numeroSessao = _value[0];
 			this._EEEEE = _value[1];

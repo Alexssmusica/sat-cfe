@@ -1,9 +1,9 @@
-import * as ffi from 'ffi-napi';
+import { Library, ForeignFunction } from 'ffi-napi';
 
-export let ffiLibrary: { AtivarSAT: ffi.ForeignFunction<string , [number, number, string | null, string | null, number]>; ComunicarCertificadoICPBRASIL: ffi.ForeignFunction<string | null, [number, string | null, string | null]>; EnviarDadosVenda: ffi.ForeignFunction<string | null, [number, string | null, string | null]>; CancelarUltimaVenda: ffi.ForeignFunction<string | null, [number, string | null, string | null, string | null]>; ConsultarSAT: ffi.ForeignFunction<string | null, [number]>; TesteFimAFim: ffi.ForeignFunction<string | null, [number, string | null, string | null]>; ConsultarStatusOperacional: ffi.ForeignFunction<string | null, [number, string | null]>; ConsultarNumeroSessao: ffi.ForeignFunction<string | null, [number, string | null, number]>; ConfigurarInterfaceDeRede: ffi.ForeignFunction<string | null, [number, string | null, string | null]>; AssociarAssinatura: ffi.ForeignFunction<string | null, [number, string | null, string | null, string | null]>; AtualizarSoftwareSAT: ffi.ForeignFunction<string | null, [number, string | null]>; ExtrairLogs: ffi.ForeignFunction<string | null, [number, string | null]>; BloquearSAT: ffi.ForeignFunction<string | null, [number, string | null]>; DesbloquearSAT: ffi.ForeignFunction<string | null, [number, string | null]>; TrocarCodigoDeAtivacao: ffi.ForeignFunction<string | null, [number, string | null, number, string | null, string | null]>; };
+export let ffiLibrary: FFiLibraryArgs;
 
 export const SATLibrary: (_libraryPath: string) => any = function (_libraryPath: string) {
-	ffiLibrary = new ffi.Library(_libraryPath, {
+	ffiLibrary = new Library(_libraryPath, {
 		AtivarSAT: ['string', ['int', 'int', 'string', 'string', 'int']],
 		ComunicarCertificadoICPBRASIL: ['string', ['int', 'string', 'string']],
 		EnviarDadosVenda: ['string', ['int', 'string', 'string']],
@@ -21,3 +21,21 @@ export const SATLibrary: (_libraryPath: string) => any = function (_libraryPath:
 		TrocarCodigoDeAtivacao: ['string', ['int', 'string', 'int', 'string', 'string']]
 	});
 };
+
+export interface FFiLibraryArgs {
+	AtivarSAT: ForeignFunction<string | null, [number, number, string | null, string | null, number]>;
+	ComunicarCertificadoICPBRASIL: ForeignFunction<string | null, [number, string | null, string | null]>;
+	EnviarDadosVenda: ForeignFunction<string | null, [number, string | null, string | null]>;
+	CancelarUltimaVenda: ForeignFunction<string | null, [number, string | null, string | null, string | null]>;
+	ConsultarSAT: ForeignFunction<string | null, [number]>;
+	TesteFimAFim: ForeignFunction<string | null, [number, string | null, string | null]>;
+	ConsultarStatusOperacional: ForeignFunction<string | null, [number, string | null]>;
+	ConsultarNumeroSessao: ForeignFunction<string | null, [number, string | null, number]>;
+	ConfigurarInterfaceDeRede: ForeignFunction<string | null, [number, string | null, string | null]>;
+	AssociarAssinatura: ForeignFunction<string | null, [number, string | null, string | null, string | null]>;
+	AtualizarSoftwareSAT: ForeignFunction<string | null, [number, string | null]>;
+	ExtrairLogs: ForeignFunction<string | null, [number, string | null]>;
+	BloquearSAT: ForeignFunction<string | null, [number, string | null]>;
+	DesbloquearSAT: ForeignFunction<string | null, [number, string | null]>;
+	TrocarCodigoDeAtivacao: ForeignFunction<string | null, [number, string | null, number, string | null, string | null]>;
+}

@@ -1,4 +1,3 @@
-
 import { ffiLibrary } from '../../../utils/SAT_Library';
 import { UTF8 } from '../../../utils/UTF8_Decode';
 import { ModelAtivarSAT } from '../../model/acoes/ativar_sat/Ativar_SAT';
@@ -16,15 +15,18 @@ export const ativarSAT: (
 	_CNPJ: string,
 	_cUF: number
 ): Promise<ModelAtivarSAT> {
-	return new Promise<ModelAtivarSAT>(async (resolve, reject) => {
+	return new Promise<ModelAtivarSAT>((resolve, reject) => {
 		try {
-			let resultAtivarSAT = ffiLibrary.AtivarSAT(_numeroSessao, _subComando, _codigoDeAtivacao, _CNPJ, _cUF);
-			resultAtivarSAT = UTF8.decode(resultAtivarSAT);
+			ffiLibrary.AtivarSAT.async(_numeroSessao, _subComando, _codigoDeAtivacao, _CNPJ, _cUF, (error, resultAtivarSAT) => {
+				if (error) {
+					throw new Error(error);
+				}
 
-			let _ativarSAT = new ModelAtivarSAT();
-			_ativarSAT.fromArray(resultAtivarSAT.split('|'));
-
-			resolve(_ativarSAT);
+				resultAtivarSAT = UTF8.decode(resultAtivarSAT);
+				const _ativarSAT = new ModelAtivarSAT();
+				_ativarSAT.fromArray(resultAtivarSAT.split('|'));
+				resolve(_ativarSAT);
+			});
 		} catch (error) {
 			reject(error);
 		}

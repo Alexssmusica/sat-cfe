@@ -13,7 +13,7 @@ export class ModelAtualizarSoftwareSAT implements IModelAtualizarSoftwareSAT {
 	_cod: string;
 	_mensagemSEFAZ: string;
 
-	constructor(numeroSessao: string = '', EEEEE: string = '', mensagem: string = '', cod: string = '', mensagemSEFAZ: string = '') {
+	constructor(numeroSessao = '', EEEEE = '', mensagem = '', cod = '', mensagemSEFAZ = '') {
 		this._numeroSessao = numeroSessao;
 		this._EEEEE = EEEEE;
 		this._mensagem = mensagem;
@@ -21,13 +21,13 @@ export class ModelAtualizarSoftwareSAT implements IModelAtualizarSoftwareSAT {
 		this._mensagemSEFAZ = mensagemSEFAZ;
 	}
 
-	fromArray: (_value: Array<string>) => void = async function (_value: Array<string> = []) {
+	fromArray: (_value: Array<string>) => void = async (_value: Array<string> = []) => {
 		try {
-			(this._numeroSessao = _value[0]),
-				(this._EEEEE = _value[1]),
-				(this._mensagem = _value[2]),
-				(this._cod = _value[3]),
-				(this._mensagemSEFAZ = _value[4]);
+			this._numeroSessao = _value[0];
+			this._EEEEE = _value[1];
+			this._mensagem = _value[2];
+			this._cod = _value[3];
+			this._mensagemSEFAZ = _value[4];
 		} catch (error) {
 			console.error('ModelAtualizarSoftwareSAT.fromArray<Exception> ', error);
 		}

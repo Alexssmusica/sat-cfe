@@ -1,5 +1,5 @@
 import { CFeCanc } from './CFeCanc/CFeCanc';
-const xml2js = require('xml2js');
+import { Builder } from 'xml2js';
 
 export interface IBaseCFeCanc {
 	CFeCanc: CFeCanc;
@@ -12,11 +12,9 @@ export class BaseCFeCanc implements IBaseCFeCanc {
 		this.CFeCanc = cfe;
 	}
 
-	toXML: () => string = function (): string {
+	toXML: () => string = (): string => {
 		try {
-			let builder = new xml2js.Builder();
-
-			// return builder.buildObject(json);
+			const builder = new Builder();
 			return builder.buildObject(
 				JSON.parse(
 					JSON.stringify(this, (key, value) => {
@@ -26,6 +24,7 @@ export class BaseCFeCanc implements IBaseCFeCanc {
 			);
 		} catch (error) {
 			console.error('BaseCFeCanc.toXML<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 }

@@ -24,11 +24,11 @@ export class Entrega implements IEntrega {
 	UF: string;
 
 	constructor(xLgr: string = '', nro: string = '', xCpl: string = '', xBairro: string = '', xMun: string = '', UF: string = '') {
-		xLgr = xLgr;
-		nro = nro;
-		xCpl = xCpl;
-		xBairro = xBairro;
-		xMun = xMun;
-		UF = UF;
+		this.xLgr = xLgr;
+		this.nro = nro;
+		this.xCpl = xCpl;
+		this.xBairro = xBairro;
+		this.xMun = xMun;
+		this.UF = UF;
 	}
 }

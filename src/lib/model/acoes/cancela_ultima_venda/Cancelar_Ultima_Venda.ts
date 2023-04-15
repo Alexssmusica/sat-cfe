@@ -28,18 +28,18 @@ export class ModelCancelarUltimaVenda implements IModelCancelarUltimaVenda {
 	_assinaturaQRCODE: string;
 
 	constructor(
-		numeroSessao: string = '',
-		EEEEE: string = '',
-		CCCC: string = '',
-		mensagem: string = '',
-		cod: string = '',
-		mensagemSEFAZ: string = '',
+		numeroSessao = '',
+		EEEEE = '',
+		CCCC = '',
+		mensagem = '',
+		cod = '',
+		mensagemSEFAZ = '',
 		arquivoCfeBase64: String = '',
-		timeStamp: string = '',
-		chaveConsulta: string = '',
-		valorTotalCFe: string = '',
-		CPFCNPJValue: string = '',
-		assinaturaQRCODE: string = ''
+		timeStamp = '',
+		chaveConsulta = '',
+		valorTotalCFe = '',
+		CPFCNPJValue = '',
+		assinaturaQRCODE = ''
 	) {
 		this._numeroSessao = numeroSessao;
 		this._EEEEE = EEEEE;
@@ -55,7 +55,7 @@ export class ModelCancelarUltimaVenda implements IModelCancelarUltimaVenda {
 		this._assinaturaQRCODE = assinaturaQRCODE;
 	}
 
-	fromArray: (_value: Array<string>) => void = async function (_value: Array<string> = []) {
+	fromArray: (_value: Array<string>) => void = async (_value: Array<string> = []) => {
 		try {
 			this._numeroSessao = _value[0];
 			this._EEEEE = _value[1];

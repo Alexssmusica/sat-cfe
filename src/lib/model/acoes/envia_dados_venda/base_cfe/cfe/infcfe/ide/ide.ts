@@ -14,7 +14,7 @@ export class Ide implements IIde {
 	signAC: string;
 	numeroCaixa: number;
 
-	constructor(CNPJ: number = 0, signAC: string = '', numeroCaixa: number = 0) {
+	constructor(CNPJ = 0, signAC = '', numeroCaixa = 0) {
 		this.CNPJ = CNPJ;
 		this.signAC = signAC;
 		this.numeroCaixa = numeroCaixa;

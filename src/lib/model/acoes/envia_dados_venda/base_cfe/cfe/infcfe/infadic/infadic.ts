@@ -8,7 +8,7 @@ export interface IInfAdic {
 export class InfAdic implements IInfAdic {
 	infCpl: string;
 
-	constructor(infCpl: string = '') {
+	constructor(infCpl = '') {
 		this.infCpl = infCpl;
 	}
 }

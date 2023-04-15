@@ -1,5 +1,5 @@
-import { ffiLibrary } from '../../../src/utils/SAT_Library';
-import { UTF8 } from '../../../src/utils/UTF8_Decode';
+import { ffiLibrary } from '../../../utils/SAT_Library';
+import { UTF8 } from '../../../utils/UTF8_Decode';
 import { ModelComunicarCertificadoICPBRASIL } from '../../model/acoes/comunicar_certificado_icpbrasil/Comunicar_Certificado_ICPBRASIL';
 
 export const comunicarCertificadoICPBRASIL: (
@@ -11,19 +11,23 @@ export const comunicarCertificadoICPBRASIL: (
 	_codigoAtivacao: string,
 	_certificado: string
 ): Promise<ModelComunicarCertificadoICPBRASIL> {
-	return new Promise<ModelComunicarCertificadoICPBRASIL>(async (resolve, reject) => {
+	return new Promise<ModelComunicarCertificadoICPBRASIL>((resolve, reject) => {
 		try {
-			let resultComunicarCertificadoICPBRASIL = ffiLibrary.ComunicarCertificadoICPBRASIL(
+			ffiLibrary.ComunicarCertificadoICPBRASIL.async(
 				_numeroSessao,
 				_codigoAtivacao,
-				_certificado
+				_certificado,
+				(error, resultComunicarCertificadoICPBRASIL) => {
+					if (error) {
+						throw new Error(error);
+					}
+
+					resultComunicarCertificadoICPBRASIL = UTF8.decode(resultComunicarCertificadoICPBRASIL);
+					const _comunicarCertificadoICPBRASIL = new ModelComunicarCertificadoICPBRASIL();
+					_comunicarCertificadoICPBRASIL.fromArray(resultComunicarCertificadoICPBRASIL.split('|'));
+					resolve(_comunicarCertificadoICPBRASIL);
+				}
 			);
-			resultComunicarCertificadoICPBRASIL = UTF8.decode(resultComunicarCertificadoICPBRASIL);
-
-			let _comunicarCertificadoICPBRASIL = new ModelComunicarCertificadoICPBRASIL();
-			_comunicarCertificadoICPBRASIL.fromArray(resultComunicarCertificadoICPBRASIL.split('|'));
-
-			resolve(_comunicarCertificadoICPBRASIL);
 		} catch (error) {
 			reject(error);
 		}

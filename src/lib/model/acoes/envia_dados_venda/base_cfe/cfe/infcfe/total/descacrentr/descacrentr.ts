@@ -8,7 +8,7 @@ export interface IDescAcrEntr {
 export class DescAcrEntr implements IDescAcrEntr {
 	vDescSubtot: number;
 
-	constructor(vDescSubtot: number = 0) {
+	constructor(vDescSubtot = 0) {
 		this.vDescSubtot = vDescSubtot;
 	}
 }

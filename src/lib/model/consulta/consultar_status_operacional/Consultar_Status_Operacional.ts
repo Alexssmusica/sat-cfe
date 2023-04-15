@@ -16,11 +16,11 @@ export class ModelConsultarStatusOperacional implements IModelConsultarStatusOpe
 	_conteudoRetorno: ConteudoRetorno;
 
 	constructor(
-		numeroSessao: string = '',
-		EEEEE: string = '',
-		mensagem: string = '',
-		cod: string = '',
-		mensagemSEFAZ: string = '',
+		numeroSessao = '',
+		EEEEE = '',
+		mensagem = '',
+		cod = '',
+		mensagemSEFAZ = '',
 		conteudoRetorno: ConteudoRetorno = new ConteudoRetorno()
 	) {
 		this._numeroSessao = numeroSessao;
@@ -31,7 +31,7 @@ export class ModelConsultarStatusOperacional implements IModelConsultarStatusOpe
 		this._conteudoRetorno = conteudoRetorno;
 	}
 
-	fromArray: (_value: Array<string>) => void = async function (_value: Array<string> = []) {
+	fromArray: (_value: Array<string>) => void = async (_value: Array<string> = []) => {
 		try {
 			this._numeroSessao = _value[0];
 			this._EEEEE = _value[1];
@@ -99,29 +99,29 @@ class ConteudoRetorno implements IConteudoRetorno {
 	_ESTADO_OPERACAO: string;
 
 	constructor(
-		NSERIE: string = '',
-		TIPO_LAN: string = '',
-		LAN_IP: string = '',
-		LAN_MAC: string = '',
-		LAN_MASK: string = '',
-		LAN_GW: string = '',
-		LAN_DNS_1: string = '',
-		LAN_DNS_2: string = '',
-		STATUS_LAN: string = '',
-		NIVEL_BATERIA: string = '',
-		MT_TOTAL: string = '',
-		MT_USADA: string = '',
-		DH_ATUAL: string = '',
-		VER_SB: string = '',
-		VER_LAYOUT: string = '',
-		ULTIMO_CFE_SAT: string = '',
-		LISTA_INICIAL: string = '',
-		LISTA_FINAL: string = '',
-		DH_CFe: string = '',
-		DH_ULTIMA: string = '',
-		CERT_EMISSAO: string = '',
-		CERT_VENCIMENTO: string = '',
-		ESTADO_OPERACAO: string = ''
+		NSERIE = '',
+		TIPO_LAN = '',
+		LAN_IP = '',
+		LAN_MAC = '',
+		LAN_MASK = '',
+		LAN_GW = '',
+		LAN_DNS_1 = '',
+		LAN_DNS_2 = '',
+		STATUS_LAN = '',
+		NIVEL_BATERIA = '',
+		MT_TOTAL = '',
+		MT_USADA = '',
+		DH_ATUAL = '',
+		VER_SB = '',
+		VER_LAYOUT = '',
+		ULTIMO_CFE_SAT = '',
+		LISTA_INICIAL = '',
+		LISTA_FINAL = '',
+		DH_CFe = '',
+		DH_ULTIMA = '',
+		CERT_EMISSAO = '',
+		CERT_VENCIMENTO = '',
+		ESTADO_OPERACAO = ''
 	) {
 		this._NSERIE = NSERIE;
 		this._TIPO_LAN = TIPO_LAN;
@@ -148,31 +148,31 @@ class ConteudoRetorno implements IConteudoRetorno {
 		this._ESTADO_OPERACAO = ESTADO_OPERACAO;
 	}
 
-	fromArray: (_value: Array<string>) => void = async function (_value: Array<string> = []) {
+	fromArray: (_value: Array<string>) => void = async (_value: Array<string> = []) => {
 		try {
-			(this._NSERIE = _value[0]),
-				(this._TIPO_LAN = _value[1]),
-				(this._LAN_IP = _value[2]),
-				(this._LAN_MAC = _value[3]),
-				(this._LAN_MASK = _value[4]),
-				(this._LAN_GW = _value[5]),
-				(this._LAN_DNS_1 = _value[6]),
-				(this._LAN_DNS_2 = _value[7]),
-				(this._STATUS_LAN = _value[8]),
-				(this._NIVEL_BATERIA = _value[9]),
-				(this._MT_TOTAL = _value[10]),
-				(this._MT_USADA = _value[11]),
-				(this._DH_ATUAL = _value[12]),
-				(this._VER_SB = _value[13]),
-				(this._VER_LAYOUT = _value[14]),
-				(this._ULTIMO_CFE_SAT = _value[15]),
-				(this._LISTA_INICIAL = _value[16]),
-				(this._LISTA_FINAL = _value[17]),
-				(this._DH_CFe = _value[18]),
-				(this._DH_ULTIMA = _value[19]),
-				(this._CERT_EMISSAO = _value[20]),
-				(this._CERT_VENCIMENTO = _value[21]),
-				(this._ESTADO_OPERACAO = _value[22]);
+			this._NSERIE = _value[0];
+			this._TIPO_LAN = _value[1];
+			this._LAN_IP = _value[2];
+			this._LAN_MAC = _value[3];
+			this._LAN_MASK = _value[4];
+			this._LAN_GW = _value[5];
+			this._LAN_DNS_1 = _value[6];
+			this._LAN_DNS_2 = _value[7];
+			this._STATUS_LAN = _value[8];
+			this._NIVEL_BATERIA = _value[9];
+			this._MT_TOTAL = _value[10];
+			this._MT_USADA = _value[11];
+			this._DH_ATUAL = _value[12];
+			this._VER_SB = _value[13];
+			this._VER_LAYOUT = _value[14];
+			this._ULTIMO_CFE_SAT = _value[15];
+			this._LISTA_INICIAL = _value[16];
+			this._LISTA_FINAL = _value[17];
+			this._DH_CFe = _value[18];
+			this._DH_ULTIMA = _value[19];
+			this._CERT_EMISSAO = _value[20];
+			this._CERT_VENCIMENTO = _value[21];
+			this._ESTADO_OPERACAO = _value[22];
 		} catch (error) {
 			console.error('ConteudoRetorno.fromArray<Exception> ', error);
 		}

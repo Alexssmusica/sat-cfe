@@ -1,6 +1,6 @@
 export interface IDest {
-	CNPJ: number;
-	CPF: number;
+	CNPJ: string;
+	CPF: string;
 	xNome: string;
 }
 
@@ -10,13 +10,13 @@ export interface IDest {
  * @param { string } xNome - Razão Social ou Nome do destinatário.
  */
 export class Dest implements IDest {
-	CNPJ: number;
-	CPF: number;
+	CNPJ: string;
+	CPF: string;
 	xNome: string;
 
-	constructor(CNPJ: number = 0, CPF: number = 0, xNome: string = '') {
-		CNPJ = CNPJ;
-		CPF = CPF;
-		xNome = xNome;
+	constructor(CNPJ: string = '', CPF: string = '', xNome: string = '') {
+		this.CNPJ = CNPJ;
+		this.CPF = CPF;
+		this.xNome = xNome;
 	}
 }

@@ -1,5 +1,5 @@
 export interface IEmit {
-	CNPJ: number;
+	CNPJ: string;
 	IE: string;
 	indRatISSQN: string;
 }
@@ -10,11 +10,11 @@ export interface IEmit {
  * @param { string } indRatISSQN - Indicador de rateio do Desconto sobre subtotal entre itens sujeitos à tributação pelo ISSQN.
  */
 export class Emit implements IEmit {
-	CNPJ: number;
+	CNPJ: string;
 	IE: string;
 	indRatISSQN: string;
 
-	constructor(CNPJ: number = 0, IE: string = '', indRatISSQN: string = 'N') {
+	constructor(CNPJ = '', IE = '', indRatISSQN = 'N') {
 		this.CNPJ = CNPJ;
 		this.IE = IE;
 		this.indRatISSQN = indRatISSQN;

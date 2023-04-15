@@ -1,37 +1,37 @@
-import { SATLibrary } from './utils/SAT_Library';
-import { ativarSAT } from './lib/acoes/ativar_sat/Ativar_SAT';
-import { comunicarCertificadoICPBRASIL } from './lib/acoes/comunicar_certificado_icpbrasil/Comunicar_Certificado_ICPBRASIL';
-import { enviarDadosVenda } from './lib/acoes/enviar_dados_venda/Enviar_Dados_Venda';
-import { cancelarUltimaVenda } from './lib/acoes/cancela_ultima_venda/Cancela_Ultima_Venda';
-import { consultarSAT } from './lib/consulta/consultar_sat/Consultar_SAT';
-import { testeFimFim } from './lib/acoes/teste_fim_fim/Teste_Fim_Fim';
-import { consultarStatusOperacional } from './lib/consulta/consultar_status_operacional/Consultar_Status_Operacional';
-import { configurarInterfaceRede } from './lib/acoes/configurar_interface_rede/Configurar_Interface_Rede';
-import { consultarNumeroSessao } from './lib/consulta/consultar_numero_sessao/Consultar_Numero_Sessao';
-import { associarAssinatura } from './lib/acoes/associar_assinatura/Associar_Assinatura';
-import { atualizarSoftwareSAT } from './lib/acoes/atualizar_software_sat/Atualizar_Software_SAT';
-import { extrairLogs } from './lib/consulta/extrair_logs/Extrair_Logs';
-import { bloquearSAT } from './lib//acoes/bloquear_sat/Bloquear_SAT';
-import { desbloquearSAT } from './lib/acoes/desbloquear_sat/Desbloquear_SAT';
-import { trocarCodigoDeAtivacao } from './lib/acoes/trocar_codigo_ativacao/Trocar_Codigo_Ativacao';
+import { SATLibrary } from '../utils/SAT_Library';
+import { ativarSAT } from '../lib/acoes/ativar_sat/Ativar_SAT';
+import { comunicarCertificadoICPBRASIL } from '../lib/acoes/comunicar_certificado_icpbrasil/Comunicar_Certificado_ICPBRASIL';
+import { enviarDadosVenda } from '../lib/acoes/enviar_dados_venda/Enviar_Dados_Venda';
+import { cancelarUltimaVenda } from '../lib/acoes/cancela_ultima_venda/Cancela_Ultima_Venda';
+import { consultarSAT } from '../lib/consulta/consultar_sat/Consultar_SAT';
+import { testeFimFim } from '../lib/acoes/teste_fim_fim/Teste_Fim_Fim';
+import { consultarStatusOperacional } from '../lib/consulta/consultar_status_operacional/Consultar_Status_Operacional';
+import { configurarInterfaceRede } from '../lib/acoes/configurar_interface_rede/Configurar_Interface_Rede';
+import { consultarNumeroSessao } from '../lib/consulta/consultar_numero_sessao/Consultar_Numero_Sessao';
+import { associarAssinatura } from '../lib/acoes/associar_assinatura/Associar_Assinatura';
+import { atualizarSoftwareSAT } from '../lib/acoes/atualizar_software_sat/Atualizar_Software_SAT';
+import { extrairLogs } from '../lib/consulta/extrair_logs/Extrair_Logs';
+import { bloquearSAT } from '../lib/acoes/bloquear_sat/Bloquear_SAT';
+import { desbloquearSAT } from '../lib/acoes/desbloquear_sat/Desbloquear_SAT';
+import { trocarCodigoDeAtivacao } from '../lib/acoes/trocar_codigo_ativacao/Trocar_Codigo_Ativacao';
 
 // * MODELS
-import { ModelAtivarSAT } from './lib/model/acoes/ativar_sat/Ativar_SAT';
-import { ModelComunicarCertificadoICPBRASIL } from './lib/model/acoes/comunicar_certificado_icpbrasil/Comunicar_Certificado_ICPBRASIL';
-import { ModelEnviarDadosVenda } from './lib/model/acoes/envia_dados_venda/Enviar_Dados_Venda';
-import { ModelCancelarUltimaVenda } from './lib/model/acoes/cancela_ultima_venda/Cancelar_Ultima_Venda';
-import { ModelConsultarSAT } from './lib/model/consulta/consultar_sat/Consultar_SAT';
-import { ModelTesteFimFim } from './lib/model/acoes/teste_fim_fim/Teste_Fim_Fim';
-import { ModelConsultarStatusOperacional } from './lib/model/consulta/consultar_status_operacional/Consultar_Status_Operacional';
-import { ModelConsultarNumeroSessao } from './lib/model/consulta/consultar_numero_sessao/Consultar_Numero_Sessao';
-import { ModelConfigurarInterfaceRede } from './lib/model/acoes/configurar_interface_rede/Configurar_Interface_Rede';
-import { ModelConfigurarInterfaceRedeDadosConfiguracao } from './lib/model/acoes/configurar_interface_rede/Configurar_Interface_Rede_Dados_Configuracao';
-import { ModelAssociarAssinatura } from './lib/model/acoes/associar_assinatura/Associar_Assinatura';
-import { ModelAtualizarSoftwareSAT } from './lib/model/acoes/atualizar_software_sat/Atualizar_Software_SAT';
-import { ModelExtrairLogs } from './lib/model/consulta/extrair_logs/Extrair_Logs';
-import { ModelBloquearSAT } from './lib/model/acoes/bloquear_sat/Bloquear_SAT';
-import { ModelDesbloquearSAT } from './lib/model/acoes/desbloquear_sat/Desbloquear_SAT';
-import { ModelTrocarCodigoAtivacao } from './lib/model/acoes/trocar_codigo_atiavacao/Trocar_Codigo_Ativacao';
+import { ModelAtivarSAT } from '../lib/model/acoes/ativar_sat/Ativar_SAT';
+import { ModelComunicarCertificadoICPBRASIL } from '../lib/model/acoes/comunicar_certificado_icpbrasil/Comunicar_Certificado_ICPBRASIL';
+import { ModelEnviarDadosVenda } from '../lib/model/acoes/envia_dados_venda/Enviar_Dados_Venda';
+import { ModelCancelarUltimaVenda } from '../lib/model/acoes/cancela_ultima_venda/Cancelar_Ultima_Venda';
+import { ModelConsultarSAT } from '../lib/model/consulta/consultar_sat/Consultar_SAT';
+import { ModelTesteFimFim } from '../lib/model/acoes/teste_fim_fim/Teste_Fim_Fim';
+import { ModelConsultarStatusOperacional } from '../lib/model/consulta/consultar_status_operacional/Consultar_Status_Operacional';
+import { ModelConsultarNumeroSessao } from '../lib/model/consulta/consultar_numero_sessao/Consultar_Numero_Sessao';
+import { ModelConfigurarInterfaceRede } from '../lib/model/acoes/configurar_interface_rede/Configurar_Interface_Rede';
+import { ModelConfigurarInterfaceRedeDadosConfiguracao } from '../lib/model/acoes/configurar_interface_rede/Configurar_Interface_Rede_Dados_Configuracao';
+import { ModelAssociarAssinatura } from '../lib/model/acoes/associar_assinatura/Associar_Assinatura';
+import { ModelAtualizarSoftwareSAT } from '../lib/model/acoes/atualizar_software_sat/Atualizar_Software_SAT';
+import { ModelExtrairLogs } from '../lib/model/consulta/extrair_logs/Extrair_Logs';
+import { ModelBloquearSAT } from '../lib/model/acoes/bloquear_sat/Bloquear_SAT';
+import { ModelDesbloquearSAT } from '../lib/model/acoes/desbloquear_sat/Desbloquear_SAT';
+import { ModelTrocarCodigoAtivacao } from '../lib/model/acoes/trocar_codigo_atiavacao/Trocar_Codigo_Ativacao';
 
 export class SAT {
 	private _libraryPath: string;
@@ -60,12 +60,12 @@ export class SAT {
 	 * @param { string } _cUF - Código do Estado da Federação, segundo tabela do IBGE, onde o SAT será ativado.
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.1.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	ativarSAT: (_numeroSessao: number, _subComando: number, _CNPJ: string, _cUF: number) => Promise<ModelAtivarSAT | undefined> = async (
+	ativarSAT: (_numeroSessao: number, _subComando: number, _CNPJ: string, _cUF: number) => Promise<ModelAtivarSAT> = async (
 		_numeroSessao: number,
 		_subComando: number,
 		_CNPJ: string,
 		_cUF: number
-	): Promise<ModelAtivarSAT | undefined> => {
+	): Promise<ModelAtivarSAT> => {
 		try {
 			let _modelAtivarSAT = new ModelAtivarSAT();
 
@@ -80,6 +80,7 @@ export class SAT {
 			return _modelAtivarSAT;
 		} catch (error) {
 			console.error('AtivarSAT<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -89,13 +90,10 @@ export class SAT {
 	 * @param { string } _certificado - Certificado Digital criado pela Autoridade Certificadora – ICPBrasil
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.2.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	comunicarCertificadoICPBRASIL: (
+	comunicarCertificadoICPBRASIL: (_numeroSessao: number, _certificado: string) => Promise<ModelComunicarCertificadoICPBRASIL> = async (
 		_numeroSessao: number,
 		_certificado: string
-	) => Promise<ModelComunicarCertificadoICPBRASIL | undefined> = async (
-		_numeroSessao: number,
-		_certificado: string
-	): Promise<ModelComunicarCertificadoICPBRASIL | undefined> => {
+	): Promise<ModelComunicarCertificadoICPBRASIL> => {
 		try {
 			let _modelComunicarCertificadoICPBRASIL = new ModelComunicarCertificadoICPBRASIL();
 
@@ -110,6 +108,7 @@ export class SAT {
 			return _modelComunicarCertificadoICPBRASIL;
 		} catch (error) {
 			console.error('ComunicarCertificadoICPBRASIL<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -119,10 +118,10 @@ export class SAT {
 	 * @param { string } _baseCFe - Refere-se aos dados de venda gerados pelo AC e utilizados para compor o CF-e-SAT
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.3.3 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	enviarDadosVenda: (_numeroSessao: number, _baseCFe: string) => Promise<ModelEnviarDadosVenda | undefined> = async (
+	enviarDadosVenda: (_numeroSessao: number, _baseCFe: string) => Promise<ModelEnviarDadosVenda> = async (
 		_numeroSessao: number,
 		_baseCFe: string
-	): Promise<ModelEnviarDadosVenda | undefined> => {
+	): Promise<ModelEnviarDadosVenda> => {
 		try {
 			let _modelEnviarDadosVenda = new ModelEnviarDadosVenda();
 
@@ -137,6 +136,7 @@ export class SAT {
 			return _modelEnviarDadosVenda;
 		} catch (error) {
 			console.error('EnviarDadosVenda<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -147,40 +147,32 @@ export class SAT {
 	 * @param { string } _baseCFeCancelamento - Refere-se aos dados da venda gerados pelo AC e utilizados para compor o CF-e-SAT de cancelamento (vide 4.2.3) da Especificacao_SAT_v_ER_2_27_05
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.4.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	cancelarUltimaVenda: (
-		_numeroSessao: number,
-		_chave: string,
-		_baseCFeCancelamento: string
-	) => Promise<ModelCancelarUltimaVenda | undefined> = async function (
-		_numeroSessao: number,
-		_chave: string,
-		_baseCFeCancelamento: string
-	): Promise<ModelCancelarUltimaVenda | undefined> {
-		try {
-			let _modelCancelarUltimaVenda = new ModelCancelarUltimaVenda();
+	cancelarUltimaVenda: (_numeroSessao: number, _chave: string, _baseCFeCancelamento: string) => Promise<ModelCancelarUltimaVenda> =
+		async (_numeroSessao: number, _chave: string, _baseCFeCancelamento: string): Promise<ModelCancelarUltimaVenda> => {
+			try {
+				let _modelCancelarUltimaVenda = new ModelCancelarUltimaVenda();
 
-			await cancelarUltimaVenda(_numeroSessao, this._codigoAtivacao, _chave, _baseCFeCancelamento)
-				.then((result) => {
-					_modelCancelarUltimaVenda = result;
-				})
-				.catch((error) => {
-					throw new Error(error);
-				});
+				await cancelarUltimaVenda(_numeroSessao, this._codigoAtivacao, _chave, _baseCFeCancelamento)
+					.then((result) => {
+						_modelCancelarUltimaVenda = result;
+					})
+					.catch((error) => {
+						throw new Error(error);
+					});
 
-			return _modelCancelarUltimaVenda;
-		} catch (error) {
-			console.error('CancelarUltimaVenda<Exception> ', error);
-		}
-	};
+				return _modelCancelarUltimaVenda;
+			} catch (error) {
+				console.error('CancelarUltimaVenda<Exception> ', error);
+				throw new Error(error);
+			}
+		};
 
 	/**
 	 * Consulta o status do SAT
 	 * @param { number } _numeroSessao - Número aleatório de 6 dígitos gerado pelo AC para controle da comunicação e vendas
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.5.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	consultarSAT: (_numeroSessao: number) => Promise<ModelConsultarSAT | undefined> = async function (
-		_numeroSessao = 0
-	): Promise<ModelConsultarSAT | undefined> {
+	consultarSAT: (_numeroSessao: number) => Promise<ModelConsultarSAT> = async (_numeroSessao: number): Promise<ModelConsultarSAT> => {
 		try {
 			let _modelConsultarSAT = new ModelConsultarSAT();
 
@@ -195,8 +187,8 @@ export class SAT {
 			return _modelConsultarSAT;
 		} catch (error) {
 			console.error('ConsultarSAT<Exception> ', error);
+			throw new Error(error);
 		}
-		return;
 	};
 
 	/**
@@ -223,6 +215,7 @@ export class SAT {
 			return _modelTesteFimFim;
 		} catch (error) {
 			console.error('TesteFimFim<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -231,9 +224,9 @@ export class SAT {
 	 * @param { number } _numeroSessao - Número aleatório de 6 dígitos gerado pelo AC para controle da comunicação e vendas
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.7.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	consultarStatusOperacional: (_numeroSessao: number) => Promise<ModelConsultarStatusOperacional> = async function (
+	consultarStatusOperacional: (_numeroSessao: number) => Promise<ModelConsultarStatusOperacional> = async (
 		_numeroSessao: number
-	): Promise<ModelConsultarStatusOperacional> {
+	): Promise<ModelConsultarStatusOperacional> => {
 		try {
 			let _modelConsultarStatusOperacional = new ModelConsultarStatusOperacional();
 
@@ -248,6 +241,7 @@ export class SAT {
 			return _modelConsultarStatusOperacional;
 		} catch (error) {
 			console.error('ConsultarStatusOperacional<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -257,10 +251,10 @@ export class SAT {
 	 * @param { number } _cNumeroDeSessao - Número sequencial de 6 dígitos da sessão a ser consultada no SAT
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.8.3 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	consultarNumeroSessao: (_numeroSessao: number, _cNumeroSessao: number) => Promise<ModelConsultarNumeroSessao> = async function (
+	consultarNumeroSessao: (_numeroSessao: number, _cNumeroSessao: number) => Promise<ModelConsultarNumeroSessao> = async (
 		_numeroSessao: number,
 		_cNumeroSessao: number
-	): Promise<ModelConsultarNumeroSessao> {
+	): Promise<ModelConsultarNumeroSessao> => {
 		try {
 			let _modelConsultarNumeroSessao = new ModelConsultarNumeroSessao();
 
@@ -275,6 +269,7 @@ export class SAT {
 			return _modelConsultarNumeroSessao;
 		} catch (error) {
 			console.error('ConsultarNumeroSessao<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -287,10 +282,10 @@ export class SAT {
 	configurarInterfaceRede: (
 		_numeroSessao: number,
 		_dadosConfiguracao: ModelConfigurarInterfaceRedeDadosConfiguracao
-	) => Promise<ModelConfigurarInterfaceRede> = async function (
+	) => Promise<ModelConfigurarInterfaceRede> = async (
 		_numeroSessao: number,
 		_dadosConfiguracao: ModelConfigurarInterfaceRedeDadosConfiguracao
-	): Promise<ModelConfigurarInterfaceRede> {
+	): Promise<ModelConfigurarInterfaceRede> => {
 		try {
 			let _modelConfigurarInterfaceRede = new ModelConfigurarInterfaceRede();
 
@@ -305,6 +300,7 @@ export class SAT {
 			return _modelConfigurarInterfaceRede;
 		} catch (error) {
 			console.error('ConfigurarInterfaceRede<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -315,33 +311,37 @@ export class SAT {
 	 * @param { string } _assinaturaCNPJs - Código hash SHA56 em base64 gerado com o valor contido em _CNPJvalue
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.10.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	associarAssinatura: (_numeroSessao: number, _CNPJvalue: string, _assinaturaCNPJs: string) => Promise<ModelAssociarAssinatura> =
-		async function (_numeroSessao: number, _CNPJvalue: string, _assinaturaCNPJs: string): Promise<ModelAssociarAssinatura> {
-			try {
-				let _modelAssociarAssinatura = new ModelAssociarAssinatura();
+	associarAssinatura: (_numeroSessao: number, _CNPJvalue: string, _assinaturaCNPJs: string) => Promise<ModelAssociarAssinatura> = async (
+		_numeroSessao: number,
+		_CNPJvalue: string,
+		_assinaturaCNPJs: string
+	): Promise<ModelAssociarAssinatura> => {
+		try {
+			let _modelAssociarAssinatura = new ModelAssociarAssinatura();
 
-				await associarAssinatura(_numeroSessao, this._codigoAtivacao, _CNPJvalue, _assinaturaCNPJs)
-					.then((result) => {
-						_modelAssociarAssinatura = result;
-					})
-					.catch((error) => {
-						throw new Error(error);
-					});
+			await associarAssinatura(_numeroSessao, this._codigoAtivacao, _CNPJvalue, _assinaturaCNPJs)
+				.then((result) => {
+					_modelAssociarAssinatura = result;
+				})
+				.catch((error) => {
+					throw new Error(error);
+				});
 
-				return _modelAssociarAssinatura;
-			} catch (error) {
-				console.error('AssociarAssinatura<Exception> ', error);
-			}
-		};
+			return _modelAssociarAssinatura;
+		} catch (error) {
+			console.error('AssociarAssinatura<Exception> ', error);
+			throw new Error(error);
+		}
+	};
 
 	/**
 	 * Atualiza para a mais nova versão do SAT disponibilizada pelo fabircante
 	 * @param { number } _numeroSessao - Número aleatório de 6 dígitos gerado pelo AC para controle da comunicação e vendas
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.11.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	atualizarSoftwareSAT: (_numeroSessao: number) => Promise<ModelAtualizarSoftwareSAT> = async function (
+	atualizarSoftwareSAT: (_numeroSessao: number) => Promise<ModelAtualizarSoftwareSAT> = async (
 		_numeroSessao: number
-	): Promise<ModelAtualizarSoftwareSAT> {
+	): Promise<ModelAtualizarSoftwareSAT> => {
 		try {
 			let _modelAtualizarSoftwareSAT = new ModelAtualizarSoftwareSAT();
 
@@ -356,6 +356,7 @@ export class SAT {
 			return _modelAtualizarSoftwareSAT;
 		} catch (error) {
 			console.error('AtualizarSoftwareSAT<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -364,7 +365,7 @@ export class SAT {
 	 * @param { number } _numeroSessao - Número aleatório de 6 dígitos gerado pelo AC para controle da comunicação e vendas
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.12.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	extrairLogs: (_numeroSessao: number) => Promise<ModelExtrairLogs> = async function (_numeroSessao: number): Promise<ModelExtrairLogs> {
+	extrairLogs: (_numeroSessao: number) => Promise<ModelExtrairLogs> = async (_numeroSessao: number): Promise<ModelExtrairLogs> => {
 		try {
 			let _modelExtrairLogs = new ModelExtrairLogs();
 
@@ -379,6 +380,7 @@ export class SAT {
 			return _modelExtrairLogs;
 		} catch (error) {
 			console.error('ExtrairLogs<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -387,7 +389,7 @@ export class SAT {
 	 * @param { number } _numeroSessao - Número aleatório de 6 dígitos gerado pelo AC para controle da comunicação e vendas
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.13.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	bloquearSAT: (_numeroSessao: number) => Promise<ModelBloquearSAT> = async function (_numeroSessao: number): Promise<ModelBloquearSAT> {
+	bloquearSAT: (_numeroSessao: number) => Promise<ModelBloquearSAT> = async (_numeroSessao: number): Promise<ModelBloquearSAT> => {
 		try {
 			let _modelBloquearSAT = new ModelBloquearSAT();
 
@@ -402,6 +404,7 @@ export class SAT {
 			return _modelBloquearSAT;
 		} catch (error) {
 			console.error('BloquearSAT<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -410,9 +413,9 @@ export class SAT {
 	 * @param { number } _numeroSessao - Número aleatório de 6 dígitos gerado pelo AC para controle da comunicação e vendas
 	 * @returns { Promise } - Promise object contendo os dados descritos no item 6.1.14.2 da Especificacao_SAT_v_ER_2_27_05
 	 */
-	desbloquearSAT: (_numeroSessao: number) => Promise<ModelDesbloquearSAT> = async function (
+	desbloquearSAT: (_numeroSessao: number) => Promise<ModelDesbloquearSAT> = async (
 		_numeroSessao: number
-	): Promise<ModelDesbloquearSAT> {
+	): Promise<ModelDesbloquearSAT> => {
 		try {
 			let _modelDesbloquearSAT = new ModelDesbloquearSAT();
 
@@ -427,6 +430,7 @@ export class SAT {
 			return _modelDesbloquearSAT;
 		} catch (error) {
 			console.error('DesbloquearSAT<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 
@@ -443,12 +447,12 @@ export class SAT {
 		_opcao: number,
 		_novoCodigo: string,
 		_confNovoCodigo: string
-	) => Promise<ModelTrocarCodigoAtivacao> = async function (
+	) => Promise<ModelTrocarCodigoAtivacao> = async (
 		_numeroSessao: number,
 		_opcao: number,
 		_novoCodigo: string,
 		_confNovoCodigo: string
-	): Promise<ModelTrocarCodigoAtivacao> {
+	): Promise<ModelTrocarCodigoAtivacao> => {
 		try {
 			let _modelTrocarCodigoAtivacao = new ModelTrocarCodigoAtivacao();
 
@@ -463,6 +467,7 @@ export class SAT {
 			return _modelTrocarCodigoAtivacao;
 		} catch (error) {
 			console.error('DesbloquearSAT<Exception> ', error);
+			throw new Error(error);
 		}
 	};
 }

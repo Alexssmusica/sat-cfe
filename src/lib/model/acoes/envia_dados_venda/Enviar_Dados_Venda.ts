@@ -28,22 +28,22 @@ export class ModelEnviarDadosVenda implements IModelEnviarDadosVenda {
 	_valorTotalCFe: string;
 	_CPFCNPJValue: string;
 	_assinaturaQRCODE: string;
-	_XMLRetorno: string;
+	_XMLRetorno: string | null;
 
 	constructor(
-		numeroSessao: string = '',
-		EEEEE: string = '',
-		CCCC: string = '',
-		mensagem: string = '',
-		cod: string = '',
-		mensagemSEFAZ: string = '',
-		arquivoCfeBase64: string = '',
-		timeStamp: string = '',
-		chaveConsulta: string = '',
-		valorTotalCFe: string = '',
-		CPFCNPJValue: string = '',
-		assinaturaQRCODE: string = '',
-		XMLRetorno: string = ''
+		numeroSessao = '',
+		EEEEE = '',
+		CCCC = '',
+		mensagem = '',
+		cod = '',
+		mensagemSEFAZ = '',
+		arquivoCfeBase64 = '',
+		timeStamp = '',
+		chaveConsulta = '',
+		valorTotalCFe = '',
+		CPFCNPJValue = '',
+		assinaturaQRCODE = '',
+		XMLRetorno = ''
 	) {
 		this._numeroSessao = numeroSessao;
 		this._EEEEE = EEEEE;
@@ -60,7 +60,7 @@ export class ModelEnviarDadosVenda implements IModelEnviarDadosVenda {
 		this._XMLRetorno = XMLRetorno;
 	}
 
-	fromArray: (_value: Array<string>) => void = async function (_value: Array<string> = []) {
+	fromArray: (_value: Array<string>) => void = async (_value: Array<string> = []) => {
 		try {
 			this._numeroSessao = _value[0];
 			this._EEEEE = _value[1];
@@ -81,10 +81,14 @@ export class ModelEnviarDadosVenda implements IModelEnviarDadosVenda {
 	};
 
 	toObject() {
-		let xmlRetorno = null;
-		parseString(decodeURIComponent(escape(atob(this._arquivoCfeBase64))), function (err, result) {
-			xmlRetorno = result;
-		});
+		let xmlRetorno: string | null = null;
+		parseString(
+			decodeURIComponent(encodeURI(Buffer.from(this._arquivoCfeBase64, 'base64').toString())),
+			function (err, result: string) {
+				xmlRetorno = result;
+			}
+		);
+
 		this._XMLRetorno = xmlRetorno;
 	}
 }

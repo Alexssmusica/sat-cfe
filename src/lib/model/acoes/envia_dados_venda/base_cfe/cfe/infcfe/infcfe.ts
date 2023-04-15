@@ -45,11 +45,11 @@ export class InfCFe implements IInfCFe {
 	infAdic: InfAdic;
 
 	constructor(
-		versaoDadosEnt: string = '',
+		versaoDadosEnt = '',
 		ide: Ide = new Ide(),
 		emit: Emit = new Emit(),
 		dest: Dest = new Dest(),
-		entrega: Entrega = null,
+		entrega: Entrega,
 		det: [Det] = [new Det()],
 		total: Total = new Total(),
 		pgto: Pgto = new Pgto(),

@@ -39,17 +39,17 @@ export class Prod implements IProd {
 	vDesc: string;
 
 	constructor(
-		cProd: string = '',
-		cEAN: string = '',
-		xProd: string = '',
-		NCM: string = '',
-		CEST: number = 0,
-		CFOP: number = 0,
-		uCom: string = '',
-		qCom: number = 0,
-		vUnCom: number = 0,
-		indRegra: string = '',
-		vDesc: string = ''
+		cProd = '',
+		cEAN = '',
+		xProd = '',
+		NCM = '',
+		CEST = 0,
+		CFOP = 0,
+		uCom = '',
+		qCom = 0,
+		vUnCom = 0,
+		indRegra = '',
+		vDesc = ''
 	) {
 		this.cProd = cProd;
 		this.cEAN = cEAN;

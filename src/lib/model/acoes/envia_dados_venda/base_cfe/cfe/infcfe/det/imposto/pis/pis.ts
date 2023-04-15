@@ -6,12 +6,12 @@ import { PISSN } from './pissn/pissn';
 import { PISST } from './pisst/pisst';
 
 export interface IPIS {
-	PISAliq: PISAliq;
-	PISQtde: PISQtde;
-	PISNT: PISNT;
-	PISSN: PISSN;
-	PISOutr: PISOutr;
-	PISST: PISST;
+	PISAliq: PISAliq | null;
+	PISQtde: PISQtde | null;
+	PISNT: PISNT | null;
+	PISSN: PISSN | null;
+	PISOutr: PISOutr | null;
+	PISST: PISST | null;
 }
 
 /** Grupo do PIS
@@ -23,20 +23,20 @@ export interface IPIS {
  * @param { PISST } PISST - Grupo de PIS Substituição Tributária
  */
 export class PIS implements IPIS {
-	PISAliq: PISAliq;
-	PISQtde: PISQtde;
-	PISNT: PISNT;
-	PISSN: PISSN;
-	PISOutr: PISOutr;
-	PISST: PISST;
+	PISAliq: PISAliq | null;
+	PISQtde: PISQtde | null;
+	PISNT: PISNT | null;
+	PISSN: PISSN | null;
+	PISOutr: PISOutr | null;
+	PISST: PISST | null;
 
 	constructor(
-		pisAliq: PISAliq = null,
-		pisQtde: PISQtde = null,
-		pisNT: PISNT = null,
-		pisSN: PISSN = null,
-		pisOutr: PISOutr = null,
-		pisST: PISST = null
+		pisAliq: PISAliq | null = null,
+		pisQtde: PISQtde | null = null,
+		pisNT: PISNT | null = null,
+		pisSN: PISSN | null = null,
+		pisOutr: PISOutr | null = null,
+		pisST: PISST | null = null
 	) {
 		this.PISAliq = pisAliq;
 		this.PISQtde = pisQtde;

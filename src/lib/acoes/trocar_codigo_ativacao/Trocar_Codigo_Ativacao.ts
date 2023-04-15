@@ -1,5 +1,5 @@
-import { ffiLibrary } from '../../../src/utils/SAT_Library';
-import { UTF8 } from '../../../src/utils/UTF8_Decode';
+import { ffiLibrary } from '../../../utils/SAT_Library';
+import { UTF8 } from '../../../utils/UTF8_Decode';
 import { ModelTrocarCodigoAtivacao } from '../../model/acoes/trocar_codigo_atiavacao/Trocar_Codigo_Ativacao';
 
 export const trocarCodigoDeAtivacao: (
@@ -15,21 +15,25 @@ export const trocarCodigoDeAtivacao: (
 	_novoCodigo: string,
 	_confNovoCodigo: string
 ): Promise<ModelTrocarCodigoAtivacao> {
-	return new Promise<ModelTrocarCodigoAtivacao>(async (resolve, reject) => {
+	return new Promise<ModelTrocarCodigoAtivacao>((resolve, reject) => {
 		try {
-			let resultTrocarCodigoDeAtivacao = await ffiLibrary.TrocarCodigoDeAtivacao(
+			ffiLibrary.TrocarCodigoDeAtivacao.async(
 				_numeroSessao,
 				_codigoAtivacao,
 				_opcao,
 				_novoCodigo,
-				_confNovoCodigo
+				_confNovoCodigo,
+				(error, resultTrocarCodigoDeAtivacao) => {
+					if (error) {
+						throw new Error(error);
+					}
+
+					resultTrocarCodigoDeAtivacao = UTF8.decode(resultTrocarCodigoDeAtivacao);
+					const _trocarCodigoDeAtivacao = new ModelTrocarCodigoAtivacao();
+					_trocarCodigoDeAtivacao.fromArray(resultTrocarCodigoDeAtivacao.split('|'));
+					resolve(_trocarCodigoDeAtivacao);
+				}
 			);
-			resultTrocarCodigoDeAtivacao = UTF8.decode(resultTrocarCodigoDeAtivacao);
-
-			let _trocarCodigoDeAtivacao = new ModelTrocarCodigoAtivacao();
-			_trocarCodigoDeAtivacao.fromArray(resultTrocarCodigoDeAtivacao.split('|'));
-
-			resolve(_trocarCodigoDeAtivacao);
 		} catch (error) {
 			reject(error);
 		}

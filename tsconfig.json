@@ -4,15 +4,15 @@
 			"node"
 		],
 		"lib": [
-			"ES2015"
+			"ES2017"
 		],
 		"target": "ES2018",
 		"incremental": true,
 		"module": "commonjs",
 		"sourceMap": false,
-		// "outDir": "./dist",
+		"outDir": "./dist",
 		"moduleResolution": "node",
-		"declaration": false,
+		"declaration": true,
 		"composite": false,
 		"removeComments": true,
 		"noImplicitAny": false,

@@ -1,5 +1,5 @@
-import { ffiLibrary } from '../../../src/utils/SAT_Library';
-import { UTF8 } from '../../../src/utils/UTF8_Decode';
+import { ffiLibrary } from '../../../utils/SAT_Library';
+import { UTF8 } from '../../../utils/UTF8_Decode';
 import { ModelConsultarNumeroSessao } from '../../model/consulta/consultar_numero_sessao/Consultar_Numero_Sessao';
 
 export const consultarNumeroSessao: (
@@ -11,15 +11,18 @@ export const consultarNumeroSessao: (
 	_codigoAtivacao: string,
 	_cNumeroSessao: number
 ): Promise<ModelConsultarNumeroSessao> {
-	return new Promise<ModelConsultarNumeroSessao>(async (resolve, reject) => {
+	return new Promise<ModelConsultarNumeroSessao>((resolve, reject) => {
 		try {
-			let resultConsultarNumeroSessao = await ffiLibrary.ConsultarNumeroSessao(_numeroSessao, _codigoAtivacao, _cNumeroSessao);
-			resultConsultarNumeroSessao = UTF8.decode(resultConsultarNumeroSessao);
+			ffiLibrary.ConsultarNumeroSessao.async(_numeroSessao, _codigoAtivacao, _cNumeroSessao, (error, resultConsultarNumeroSessao) => {
+				if (error) {
+					throw new Error(error);
+				}
 
-			let _consultarNumeroSessao = new ModelConsultarNumeroSessao();
-			_consultarNumeroSessao.fromArray(resultConsultarNumeroSessao.split('|'));
-
-			resolve(_consultarNumeroSessao);
+				resultConsultarNumeroSessao = UTF8.decode(resultConsultarNumeroSessao);
+				const _consultarNumeroSessao = new ModelConsultarNumeroSessao();
+				_consultarNumeroSessao.fromArray(resultConsultarNumeroSessao.split('|'));
+				resolve(_consultarNumeroSessao);
+			});
 		} catch (error) {
 			reject(error);
 		}

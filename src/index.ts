@@ -1,4 +1,4 @@
-export { SAT } from './src/SAT';
+export { SAT } from './SAT/SAT';
 export { ModelConfigurarInterfaceRedeDadosConfiguracao } from './lib/model/acoes/configurar_interface_rede/Configurar_Interface_Rede_Dados_Configuracao';
 export { BaseCFe } from './lib/model/acoes/envia_dados_venda/base_cfe/base_cfe';
 export { ICMS00 } from './lib/model/acoes/envia_dados_venda/base_cfe/cfe/infcfe/det/imposto/icms/cst/icms00/icms00';

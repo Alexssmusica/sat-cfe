@@ -24,7 +24,7 @@ export class InfCFe implements IInfCFe {
 	emit: Emit;
 	total: Total;
 
-	constructor(chCanc: string = '', ide: Ide = new Ide(), emit: Emit = new Emit(), total: Total = new Total()) {
+	constructor(chCanc = '', ide: Ide = new Ide(), emit: Emit = new Emit(), total: Total = new Total()) {
 		this.$ = {
 			chCanc: chCanc
 		};
