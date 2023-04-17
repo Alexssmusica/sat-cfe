@@ -82,12 +82,14 @@ export class ModelEnviarDadosVenda implements IModelEnviarDadosVenda {
 
 	toObject() {
 		let xmlRetorno: string | null = null;
-		parseString(
-			decodeURIComponent(encodeURI(Buffer.from(this._arquivoCfeBase64, 'base64').toString())),
-			function (err, result: string) {
-				xmlRetorno = result;
-			}
-		);
+		if (this._arquivoCfeBase64) {
+			parseString(
+				decodeURIComponent(encodeURI(Buffer.from(this._arquivoCfeBase64, 'base64').toString())),
+				function (err, result: string) {
+					xmlRetorno = result;
+				}
+			);
+		}
 
 		this._XMLRetorno = xmlRetorno;
 	}
