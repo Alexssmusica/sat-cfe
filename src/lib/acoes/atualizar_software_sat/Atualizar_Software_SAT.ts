@@ -13,7 +13,7 @@ export const atualizarSoftwareSAT: (_numeroSessao: number, _codigoAtivacao: stri
 					throw new Error(error);
 				}
 
-				resultAtualizarSoftwareSAT = UTF8.decode(resultAtualizarSoftwareSAT) as string;
+				resultAtualizarSoftwareSAT = UTF8.decode(resultAtualizarSoftwareSAT as string) as string;
 				const _atualizarSoftwareSAT = new ModelAtualizarSoftwareSAT();
 				_atualizarSoftwareSAT.fromArray(resultAtualizarSoftwareSAT.split('|'));
 				resolve(_atualizarSoftwareSAT);

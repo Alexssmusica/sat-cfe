@@ -25,7 +25,7 @@ export const associarAssinatura: (
 						throw new Error(error);
 					}
 
-					resultAssociarAssinatura = UTF8.decode(resultAssociarAssinatura);
+					resultAssociarAssinatura = UTF8.decode(resultAssociarAssinatura as string);
 					const _associarAssinatura = new ModelAssociarAssinatura();
 					_associarAssinatura.fromArray(resultAssociarAssinatura.split('|'));
 					resolve(_associarAssinatura);

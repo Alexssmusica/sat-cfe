@@ -23,7 +23,7 @@ export const configurarInterfaceRede: (
 						throw new Error(error);
 					}
 
-					resultConfigurarInterfaceRede = UTF8.decode(resultConfigurarInterfaceRede);
+					resultConfigurarInterfaceRede = UTF8.decode(resultConfigurarInterfaceRede as string);
 					const _configurarInterfaceRede = new ModelConfigurarInterfaceRede();
 					_configurarInterfaceRede.fromArray(resultConfigurarInterfaceRede.split('|'));
 					resolve(_configurarInterfaceRede);

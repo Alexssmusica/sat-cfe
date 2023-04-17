@@ -14,7 +14,7 @@ export const testeFimFim: (_numeroSessao: number, _codigoAtivacao: string, _base
 					throw new Error(error);
 				}
 
-				resultTesteFimFim = UTF8.decode(resultTesteFimFim);
+				resultTesteFimFim = UTF8.decode(resultTesteFimFim as string);
 				const _testeFimFim = new ModelTesteFimFim();
 				_testeFimFim.fromArray(resultTesteFimFim.split('|'));
 				resolve(_testeFimFim);

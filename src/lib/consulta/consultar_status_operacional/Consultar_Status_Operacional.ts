@@ -11,7 +11,7 @@ export const consultarStatusOperacional: (_numeroSessao: number, _codigoAtivacao
 						throw new Error(error);
 					}
 
-					resultConsultarStatusOperacional = UTF8.decode(resultConsultarStatusOperacional);
+					resultConsultarStatusOperacional = UTF8.decode(resultConsultarStatusOperacional as string);
 					const _consultarStatusOperacional = new ModelConsultarStatusOperacional();
 					_consultarStatusOperacional.fromArray(resultConsultarStatusOperacional.split('|'));
 					resolve(_consultarStatusOperacional);

@@ -7,16 +7,11 @@ export const consultarSAT: (_numeroSessao: number) => Promise<ModelConsultarSAT>
 ): Promise<ModelConsultarSAT> {
 	return new Promise<ModelConsultarSAT>((resolve, reject) => {
 		try {
-			ffiLibrary.ConsultarSAT.async(_numeroSessao, (error, resultConsultarSAT) => {
-				if (error) {
-					throw new Error(error);
-				}
-
-				resultConsultarSAT = UTF8.decode(resultConsultarSAT);
-				const consultarSAT = new ModelConsultarSAT();
-				consultarSAT.fromArray(resultConsultarSAT.split('|'));
-				resolve(consultarSAT);
-			});
+			let resultConsultarSAT = ffiLibrary.ConsultarSAT(_numeroSessao);
+			resultConsultarSAT = UTF8.decode(resultConsultarSAT as string);
+			const consultarSAT = new ModelConsultarSAT();
+			consultarSAT.fromArray(resultConsultarSAT.split('|'));
+			resolve(consultarSAT);
 		} catch (error) {
 			reject(error);
 		}

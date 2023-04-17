@@ -22,7 +22,7 @@ export const ativarSAT: (
 					throw new Error(error);
 				}
 
-				resultAtivarSAT = UTF8.decode(resultAtivarSAT);
+				resultAtivarSAT = UTF8.decode(resultAtivarSAT as string);
 				const _ativarSAT = new ModelAtivarSAT();
 				_ativarSAT.fromArray(resultAtivarSAT.split('|'));
 				resolve(_ativarSAT);

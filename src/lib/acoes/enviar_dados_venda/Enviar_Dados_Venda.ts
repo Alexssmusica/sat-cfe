@@ -11,7 +11,7 @@ export const enviarDadosVenda: (_numeroSessao: number, _codigoAtivacao: string, 
 						throw new Error(error);
 					}
 
-					resultEnviarDadosVenda = UTF8.decode(resultEnviarDadosVenda);
+					resultEnviarDadosVenda = UTF8.decode(resultEnviarDadosVenda as string);
 					const _enviarDadosVenda = new ModelEnviarDadosVenda();
 					_enviarDadosVenda.fromArray(resultEnviarDadosVenda.split('|'));
 					resolve(_enviarDadosVenda);

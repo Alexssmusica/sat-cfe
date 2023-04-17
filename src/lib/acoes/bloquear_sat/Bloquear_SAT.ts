@@ -13,7 +13,7 @@ export const bloquearSAT: (_numeroSessao: number, _codigoAtivacao: string) => Pr
 					throw new Error(error);
 				}
 
-				resultBloquearSAT = UTF8.decode(resultBloquearSAT) as string;
+				resultBloquearSAT = UTF8.decode(resultBloquearSAT as string) as string;
 				const _bloquearSAT = new ModelBloquearSAT();
 				_bloquearSAT.fromArray(resultBloquearSAT.split('|'));
 				resolve(_bloquearSAT);

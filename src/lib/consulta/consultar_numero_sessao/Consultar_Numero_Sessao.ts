@@ -18,7 +18,7 @@ export const consultarNumeroSessao: (
 					throw new Error(error);
 				}
 
-				resultConsultarNumeroSessao = UTF8.decode(resultConsultarNumeroSessao);
+				resultConsultarNumeroSessao = UTF8.decode(resultConsultarNumeroSessao as string);
 				const _consultarNumeroSessao = new ModelConsultarNumeroSessao();
 				_consultarNumeroSessao.fromArray(resultConsultarNumeroSessao.split('|'));
 				resolve(_consultarNumeroSessao);

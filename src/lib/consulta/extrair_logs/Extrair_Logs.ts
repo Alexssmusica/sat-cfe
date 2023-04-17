@@ -13,7 +13,7 @@ export const extrairLogs: (_numeroSessao: number, _codigoAtivacao: string) => Pr
 					throw new Error(error);
 				}
 
-				resultExtrairLogs = UTF8.decode(resultExtrairLogs);
+				resultExtrairLogs = UTF8.decode(resultExtrairLogs as string);
 				const _extrairLogs = new ModelExtrairLogs();
 				_extrairLogs.fromArray(resultExtrairLogs.split('|'));
 				resolve(_extrairLogs);

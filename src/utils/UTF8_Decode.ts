@@ -1,26 +1,37 @@
 export const UTF8 = {
-	encode: function (s: any): string {
-		if (s) {
-			for (
-				let c: number, i = -1, l = (s = s.split('')).length, o = String.fromCharCode;
-				++i < l;
-				s[i] = (c = s[i].charCodeAt(0)) >= 127 ? o(0xc0 | (c >>> 6)) + o(0x80 | (c & 0x3f)) : s[i]
-			);
-			return s.join('');
-		}
-		return '';
+	encode: (s: string): string => {
+		if (!s) return '';
+
+		return s
+			.split('')
+			.map((char) => char.charCodeAt(0))
+			.map((code) => (code >= 127 ? [0xc0 | (code >>> 6), 0x80 | (code & 0x3f)] : [code]))
+			.reduce((acc, codes) => acc + String.fromCharCode(...codes), '');
 	},
-	decode: function (s: any): string {
-		if (s) {
-			for (
-				let a: any, b: any, i = -1, l = (s = s.split('')).length, o = String.fromCharCode, c = 'charCodeAt';
-				++i < l;
-				(a = s[i][c](0)) & 0x80 &&
-				((s[i] = (a & 0xfc) == 0xc0 && ((b = s[i + 1][c](0)) & 0xc0) == 0x80 ? o(((a & 0x03) << 6) + (b & 0x3f)) : o(128)),
-				(s[++i] = ''))
-			);
-			return s.join('');
-		}
-		return '';
+
+	decode: (s: string): string => {
+		if (!s) return '';
+
+		return s.split('').reduce(
+			({ acc, buffer }: { acc: string; buffer: number[] }, char: string) => {
+				const code = char.charCodeAt(0);
+				if (code & 0x80) {
+					if (!buffer.length) buffer.push(code);
+					else if ((buffer[0] & 0xc0) == 0xc0 && (code & 0xc0) == 0x80) buffer.push(code);
+					else {
+						acc += String.fromCharCode(((buffer[0] & 0x03) << 6) | (buffer[1] & 0x3f));
+						buffer = [code];
+					}
+				} else {
+					if (buffer.length) {
+						acc += String.fromCharCode(((buffer[0] & 0x03) << 6) | (buffer[1] & 0x3f));
+						buffer = [];
+					}
+					acc += char;
+				}
+				return { acc, buffer };
+			},
+			{ acc: '', buffer: [] }
+		).acc;
 	}
 };

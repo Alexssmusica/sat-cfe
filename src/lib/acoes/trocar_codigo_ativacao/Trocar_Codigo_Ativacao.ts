@@ -28,7 +28,7 @@ export const trocarCodigoDeAtivacao: (
 						throw new Error(error);
 					}
 
-					resultTrocarCodigoDeAtivacao = UTF8.decode(resultTrocarCodigoDeAtivacao);
+					resultTrocarCodigoDeAtivacao = UTF8.decode(resultTrocarCodigoDeAtivacao as string);
 					const _trocarCodigoDeAtivacao = new ModelTrocarCodigoAtivacao();
 					_trocarCodigoDeAtivacao.fromArray(resultTrocarCodigoDeAtivacao.split('|'));
 					resolve(_trocarCodigoDeAtivacao);

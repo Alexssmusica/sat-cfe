@@ -22,7 +22,7 @@ export const comunicarCertificadoICPBRASIL: (
 						throw new Error(error);
 					}
 
-					resultComunicarCertificadoICPBRASIL = UTF8.decode(resultComunicarCertificadoICPBRASIL);
+					resultComunicarCertificadoICPBRASIL = UTF8.decode(resultComunicarCertificadoICPBRASIL as string);
 					const _comunicarCertificadoICPBRASIL = new ModelComunicarCertificadoICPBRASIL();
 					_comunicarCertificadoICPBRASIL.fromArray(resultComunicarCertificadoICPBRASIL.split('|'));
 					resolve(_comunicarCertificadoICPBRASIL);

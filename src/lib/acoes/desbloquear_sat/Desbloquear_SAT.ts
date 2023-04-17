@@ -13,7 +13,7 @@ export const desbloquearSAT: (_numeroSessao: number, _codigoAtivacao: string) =>
 					throw new Error(error);
 				}
 
-				resultDesbloquearSAT = UTF8.decode(resultDesbloquearSAT);
+				resultDesbloquearSAT = UTF8.decode(resultDesbloquearSAT as string);
 				const _desbloquearSAT = new ModelDesbloquearSAT();
 				_desbloquearSAT.fromArray(resultDesbloquearSAT.split('|'));
 				resolve(_desbloquearSAT);

@@ -25,7 +25,7 @@ export const cancelarUltimaVenda: (
 						throw new Error(error);
 					}
 
-					resultCancelarUltimaVenda = UTF8.decode(resultCancelarUltimaVenda);
+					resultCancelarUltimaVenda = UTF8.decode(resultCancelarUltimaVenda as string);
 					const _cancelarUltimaVenda = new ModelCancelarUltimaVenda();
 					_cancelarUltimaVenda.fromArray(resultCancelarUltimaVenda.split('|'));
 					resolve(_cancelarUltimaVenda);
