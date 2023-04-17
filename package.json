@@ -1,6 +1,6 @@
 {
   "name": "sat-cfe",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Addon para comunicar com dll do sat cfe",
   "main": "dist/index.js",
   "scripts": {
