@@ -1,3 +1,4 @@
+import { parseString } from 'xml2js';
 export interface IModelCancelarUltimaVenda {
 	_numeroSessao: string;
 	_EEEEE: string;
@@ -26,6 +27,8 @@ export class ModelCancelarUltimaVenda implements IModelCancelarUltimaVenda {
 	_valorTotalCFe: string;
 	_CPFCNPJValue: string;
 	_assinaturaQRCODE: string;
+	_XMLRetorno: string | null;
+	_XMLRetornoString: string | null;
 
 	constructor(
 		numeroSessao = '',
@@ -69,8 +72,24 @@ export class ModelCancelarUltimaVenda implements IModelCancelarUltimaVenda {
 			this._valorTotalCFe = _value[9];
 			this._CPFCNPJValue = _value[10];
 			this._assinaturaQRCODE = _value[11];
+			this.toObject();
 		} catch (error) {
 			console.error('ModelCancelarUltimaVenda.fromArray<Exception> ', error);
 		}
 	};
+
+	toObject() {
+		let xmlRetorno: string | null = null;
+		let xmlStringRetorno: string | null = null;
+		if (this._arquivoCfeBase64) {
+			const xmlString = Buffer.from(this._arquivoCfeBase64, 'base64').toString();
+			parseString(decodeURIComponent(encodeURI(xmlString)), function (err, result: string) {
+				xmlRetorno = result;
+			});
+			xmlStringRetorno = xmlString;
+		}
+
+		this._XMLRetorno = xmlRetorno;
+		this._XMLRetornoString = xmlStringRetorno;
+	}
 }

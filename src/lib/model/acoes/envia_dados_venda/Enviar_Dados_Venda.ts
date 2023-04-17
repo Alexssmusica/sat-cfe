@@ -29,6 +29,7 @@ export class ModelEnviarDadosVenda implements IModelEnviarDadosVenda {
 	_CPFCNPJValue: string;
 	_assinaturaQRCODE: string;
 	_XMLRetorno: string | null;
+	_XMLRetornoString: string | null;
 
 	constructor(
 		numeroSessao = '',
@@ -82,15 +83,16 @@ export class ModelEnviarDadosVenda implements IModelEnviarDadosVenda {
 
 	toObject() {
 		let xmlRetorno: string | null = null;
+		let xmlStringRetorno: string | null = null;
 		if (this._arquivoCfeBase64) {
-			parseString(
-				decodeURIComponent(encodeURI(Buffer.from(this._arquivoCfeBase64, 'base64').toString())),
-				function (err, result: string) {
-					xmlRetorno = result;
-				}
-			);
+			const xmlString = Buffer.from(this._arquivoCfeBase64, 'base64').toString();
+			parseString(decodeURIComponent(encodeURI(xmlString)), function (err, result: string) {
+				xmlRetorno = result;
+			});
+			xmlStringRetorno = xmlString;
 		}
 
 		this._XMLRetorno = xmlRetorno;
+		this._XMLRetornoString = xmlStringRetorno;
 	}
 }
