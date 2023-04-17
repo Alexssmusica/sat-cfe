@@ -1,11 +1,12 @@
 {
   "name": "sat-cfe",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Addon para comunicar com dll do sat cfe",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "npx eslint */*/.{js,ts} --quiet --fix",
+    "publish:npm": "npm run build && npm publish",
     "type": "tsc --project tsconfig.json",
     "build": "tsc",
     "prettier": "npx prettier src/**/*.{vue,js,ts} --write"
