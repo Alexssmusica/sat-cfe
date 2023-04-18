@@ -5,6 +5,7 @@ export interface IModelExtrairLogs {
 	_cod: string;
 	_mensagemSEFAZ: string;
 	_arquivoLog: string;
+	_arquivoLogString: string | null;
 }
 
 export class ModelExtrairLogs implements IModelExtrairLogs {
@@ -14,6 +15,7 @@ export class ModelExtrairLogs implements IModelExtrairLogs {
 	_cod: string;
 	_mensagemSEFAZ: string;
 	_arquivoLog: string;
+	_arquivoLogString: string | null;
 
 	constructor(numeroSessao = '', EEEEE = '', mensagem = '', cod = '', mensagemSEFAZ = '', arquivoLog = '') {
 		this._numeroSessao = numeroSessao;
@@ -32,8 +34,19 @@ export class ModelExtrairLogs implements IModelExtrairLogs {
 			this._cod = _value[3];
 			this._mensagemSEFAZ = _value[4];
 			this._arquivoLog = _value[5];
+			this.toObject();
 		} catch (error) {
 			console.error('ModelExtrairLogs.fromArray<Exception> ', error);
 		}
 	};
+
+	toObject() {
+		let arquivoLogString: string | null = null;
+		if (this._arquivoLog) {
+			const logString = Buffer.from(this._arquivoLog, 'base64').toString();
+			arquivoLogString = logString;
+		}
+
+		this._arquivoLogString = arquivoLogString;
+	}
 }
