@@ -2,7 +2,7 @@ import { SAT } from './SAT/SAT';
 import * as path from 'path';
 
 async function test() {
-	const caminho = path.resolve('SAT.dll');
+	const caminho = path.resolve('dllsat.dll');
 	const sat = new SAT(caminho, 'jclan3411');
 	const sessao = Math.floor(Math.random() * 999999);
 	// const retorno = await sat.enviarDadosVenda(
@@ -15,7 +15,8 @@ async function test() {
 	// 	'CFe35230411111111111111591234567890000496171506',
 	// 	'<CFeCanc><infCFe chCanc="CFe35230411111111111111591234567890000496171506"><ide><CNPJ>11111111111111</CNPJ><signAC>hdj2552244122223335dddd44444d444d4wq4dwddsa4d444d4sa4d4asd44a4444d4sa4d4asd4cscsacsdcdscdsc366sc6s3c3sdc63c3c63c3sd3c3sdc3ds6c3ds3c3dsc3333333333333333cds3c3ds3c3sdc3ds3c3sdc3dsc3ds3c3dsc33ds3cds3c3ds3cc3ds3c3c3ds3c3dsc3ds3c3cds3c3dscc3ds3c3sd3c3c3dsc3ds3c3dsc3ds3cds3c3sdc3sd3c3sdc3sc6sd6cs6dc6sdc6s6c6sdc6sd6c6sdc6sc6sd6csd6c6ds6csd6c66c6ddc</signAC><numeroCaixa>001</numeroCaixa></ide><emit/><dest></dest><total/></infCFe></CFeCanc>'
 	// );
-	const retorno = await sat.extrairLogs(sessao);
+	// const retorno = await sat.extrairLogs(sessao);
+	const retorno = await sat.versaoLib();
 	console.log(retorno);
 }
 

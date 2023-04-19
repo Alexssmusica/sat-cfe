@@ -32,6 +32,10 @@ import { ModelExtrairLogs } from '../lib/model/consulta/extrair_logs/Extrair_Log
 import { ModelBloquearSAT } from '../lib/model/acoes/bloquear_sat/Bloquear_SAT';
 import { ModelDesbloquearSAT } from '../lib/model/acoes/desbloquear_sat/Desbloquear_SAT';
 import { ModelTrocarCodigoAtivacao } from '../lib/model/acoes/trocar_codigo_atiavacao/Trocar_Codigo_Ativacao';
+import { versaoLib } from '../lib/consulta/versao_lib/Versao_Lib';
+import { ModelVersaoLib } from '../lib/model/consulta/versao_lib/Versao_Lib';
+import { geraNumeroSessao } from '../lib/acoes/gera_numero_sessao/Gera_Numero_Sessao';
+import { ModelGeraNumeroSessao } from '../lib/model/acoes/gera_numero_sessao/Gera_Numero_Sessao';
 
 export class SAT {
 	private _libraryPath: string;
@@ -166,6 +170,44 @@ export class SAT {
 				throw new Error(error);
 			}
 		};
+
+	versaoLib: () => Promise<ModelVersaoLib> = async (): Promise<ModelVersaoLib> => {
+		try {
+			let _modelVersaoLib = new ModelVersaoLib();
+
+			await versaoLib()
+				.then((result) => {
+					_modelVersaoLib = result;
+				})
+				.catch((error) => {
+					throw new Error(error);
+				});
+
+			return _modelVersaoLib;
+		} catch (error) {
+			console.error('VersaoLib<Exception> ', error);
+			throw new Error(error);
+		}
+	};
+
+	geraNumeroSessao: () => Promise<ModelGeraNumeroSessao> = async (): Promise<ModelGeraNumeroSessao> => {
+		try {
+			let _modelGeraNumeroSessao = new ModelGeraNumeroSessao();
+
+			await geraNumeroSessao()
+				.then((result) => {
+					_modelGeraNumeroSessao = result;
+				})
+				.catch((error) => {
+					throw new Error(error);
+				});
+
+			return _modelGeraNumeroSessao;
+		} catch (error) {
+			console.error('GeraNumeroSessao<Exception> ', error);
+			throw new Error(error);
+		}
+	};
 
 	/**
 	 * Consulta o status do SAT

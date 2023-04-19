@@ -14,6 +14,8 @@ export const SATLibrary: (_libraryPath: string) => any = function (_libraryPath:
 		ConsultarNumeroSessao: ['string', ['int', 'string', 'int']],
 		ConfigurarInterfaceDeRede: ['string', ['int', 'string', 'string']],
 		AssociarAssinatura: ['string', ['int', 'string', 'string', 'string']],
+		VersaoLib: ['string', []],
+		GeraNumeroSessao: ['int', []],
 		AtualizarSoftwareSAT: ['string', ['int', 'string']],
 		ExtrairLogs: ['string', ['int', 'string']],
 		BloquearSAT: ['string', ['int', 'string']],
@@ -30,6 +32,8 @@ export interface FFiLibraryArgs {
 	ConsultarSAT: ForeignFunction<string | null, [number]>;
 	TesteFimAFim: ForeignFunction<string | null, [number, string | null, string | null]>;
 	ConsultarStatusOperacional: ForeignFunction<string | null, [number, string | null]>;
+	VersaoLib: ForeignFunction<string | null>;
+	GeraNumeroSessao: ForeignFunction<number>;
 	ConsultarNumeroSessao: ForeignFunction<string | null, [number, string | null, number]>;
 	ConfigurarInterfaceDeRede: ForeignFunction<string | null, [number, string | null, string | null]>;
 	AssociarAssinatura: ForeignFunction<string | null, [number, string | null, string | null, string | null]>;
