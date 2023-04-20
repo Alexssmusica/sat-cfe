@@ -1,6 +1,6 @@
 {
   "name": "sat-cfe",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Addon para comunicar com dll do sat cfe",
   "main": "dist/index.js",
   "scripts": {
@@ -39,7 +39,8 @@
     "url": "git+https://github.com/Alexssmusica/sat-cfe.git"
   },
   "keywords": [
-    "sat"
+    "sat",
+    "Addon para comunicar com dll do sat cfe"
   ],
   "bugs": {
     "url": "https://github.com/Alexssmusica/sat-cfe/issues"
