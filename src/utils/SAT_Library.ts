@@ -1,4 +1,4 @@
-import { Library, ForeignFunction } from 'ffi-napi';
+import { ForeignFunction, Library } from '@breush/ffi-napi';
 
 export let ffiLibrary: FFiLibraryArgs;
 
