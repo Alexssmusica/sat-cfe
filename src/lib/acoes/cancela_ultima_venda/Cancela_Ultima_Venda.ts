@@ -25,7 +25,7 @@ export const cancelarUltimaVenda: (
 					if (error) {
 						throw new Error(error);
 					}
-
+					console.log(resultCancelarUltimaVenda, 'resultCancelarUltimaVenda');
 					resultCancelarUltimaVenda = UTF8.decode(resultCancelarUltimaVenda as string);
 					const _cancelarUltimaVenda = new ModelCancelarUltimaVenda();
 					_cancelarUltimaVenda.fromArray(resultCancelarUltimaVenda.split('|'));
@@ -60,7 +60,7 @@ export const cancelarUltimaVendaEmulador: (
 					if (error) {
 						throw new Error(error);
 					}
-
+					console.log(resultCancelarUltimaVenda, 'resultCancelarUltimaVenda');
 					resultCancelarUltimaVenda = UTF8.decode(resultCancelarUltimaVenda as string);
 					const _cancelarUltimaVenda = new ModelCancelarUltimaVenda();
 					_cancelarUltimaVenda.fromArray(resultCancelarUltimaVenda.split('|'));
