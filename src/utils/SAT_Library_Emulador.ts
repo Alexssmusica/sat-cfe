@@ -1,4 +1,4 @@
-import { ForeignFunction, Library } from '@alexssmusica/ffi-napi';
+import { ForeignFunction, Library } from 'ffi-libraries';
 
 export let ffiLibrary: FFiLibraryArgs;
 
